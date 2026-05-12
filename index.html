@@ -220,15 +220,8 @@
                   class="btn btn--resume project-showcase-card__cta">View Project</a>
               </div>
               <div class="project-showcase-card__visual">
-                <div class="project-showcase-card__mock" aria-hidden="true">
-                  <div class="project-showcase-card__mock-chrome">
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-url">sqlviz.local</span>
-                  </div>
-                  <div class="project-showcase-card__mock-body project-showcase-card__mock-body--sqlviz"></div>
-                </div>
+                <img src="sql.jpg" alt="SQLViz project preview — SQL JOIN visualizer interface" width="1240"
+                  height="775" class="project-showcase-card__image" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
@@ -251,15 +244,8 @@
                   class="btn btn--resume project-showcase-card__cta">GitHub</a>
               </div>
               <div class="project-showcase-card__visual">
-                <div class="project-showcase-card__mock" aria-hidden="true">
-                  <div class="project-showcase-card__mock-chrome">
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-url">maulikvaghela.dev</span>
-                  </div>
-                  <div class="project-showcase-card__mock-body project-showcase-card__mock-body--portfolio"></div>
-                </div>
+                <img src="p3.png" alt="Portfolio website preview — layout and hero section" width="800" height="500"
+                  class="project-showcase-card__image" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
@@ -282,15 +268,8 @@
                   class="btn btn--resume project-showcase-card__cta">Know More</a>
               </div>
               <div class="project-showcase-card__visual">
-                <div class="project-showcase-card__mock" aria-hidden="true">
-                  <div class="project-showcase-card__mock-chrome">
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-dot"></span>
-                    <span class="project-showcase-card__mock-url">preview.local</span>
-                  </div>
-                  <div class="project-showcase-card__mock-body project-showcase-card__mock-body--soon"></div>
-                </div>
+                <img src="soon.jpg" alt="Upcoming project preview — work in progress" width="600" height="400"
+                  class="project-showcase-card__image" loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
@@ -299,73 +278,85 @@
     </section>
 
     <!-- ========== CONTACT ========== -->
-    <section class="section" id="contact">
+    <section class="section contact-section" id="contact">
       <div class="container">
         <p class="section__eyebrow reveal">Say Hello</p>
         <h2 class="section__heading reveal">Get in touch.</h2>
         <div class="section__underline reveal"></div>
         <p class="section__subtext reveal">Open to internships, collabs, and interesting problems.</p>
 
-        <div class="contact__grid">
-          <!-- Form -->
-          <div class="contact__form reveal">
-            <form id="contact-form" novalidate>
+        <div class="contact-container reveal">
+          <div class="contact-form-area">
+            <form id="contact-form" class="contact-form" novalidate>
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
+                <input type="text" id="name" name="name" class="contact-input" placeholder="Your name" required />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                <input type="email" id="email" name="email" class="contact-input" placeholder="your@email.com"
+                  required />
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell me what you're working on…" required></textarea>
+                <textarea id="message" name="message" class="contact-textarea"
+                  placeholder="Tell me what you're working on…" required></textarea>
               </div>
-              <button type="submit" class="btn">Send Message →</button>
+              <button type="submit" class="btn contact-button">Send Message →</button>
               <div class="form__success" id="form-success">
                 ✓ Message sent! I'll get back to you soon.
               </div>
             </form>
           </div>
 
-          <!-- Info -->
-          <div class="contact__info reveal">
-            <h3 class="contact__info-heading">Let's build something.</h3>
-            <p class="contact__info-text">Whether you have a project in mind, want to collaborate on open source, or
+          <aside class="contact-info-area" aria-label="Contact details">
+            <div class="contact-profile">
+              <div class="contact-avatar" aria-hidden="true">
+                <span class="contact-avatar__initials">MV</span>
+              </div>
+              <p class="contact-availability">
+                <span class="contact-availability__dot" aria-hidden="true"></span>
+                Available for internships
+              </p>
+            </div>
+            <h3 class="contact-info-heading">Let's build something.</h3>
+            <p class="contact-info-lede">Whether you have a project in mind, want to collaborate on open source, or
               just want to chat about algorithms at 2am — my inbox is always open.</p>
-            <p class="contact__info-text"><strong>Maulik Vaghela (Buggy)</strong><br />2nd Year B.E. CS &amp;
-              IT<br />Vadodara, India</p>
-            <div class="contact__socials">
-              <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener" class="social-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round">
+            <div class="contact-name-block">
+              <p class="contact-name">Maulik Vaghela</p>
+              <p class="contact-role">Full Stack Developer</p>
+              <p class="contact-meta">2nd Year B.E. CS &amp; IT · Vadodara, India</p>
+            </div>
+            <div class="contact-socials">
+              <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener noreferrer"
+                class="contact-social-link">
+                <svg class="contact-social-link__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                   <path
                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
                 </svg>
                 GitHub
               </a>
-              <span class="social-sep">/</span>
-              <a href="https://linkedin.com/in/maulikvaghela" target="_blank" rel="noopener" class="social-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round">
+              <a href="https://linkedin.com/in/maulikvaghela" target="_blank" rel="noopener noreferrer"
+                class="contact-social-link">
+                <svg class="contact-social-link__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                   <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
                   <rect x="2" y="9" width="4" height="12" />
                   <circle cx="4" cy="4" r="2" />
                 </svg>
                 LinkedIn
               </a>
-              <span class="social-sep">/</span>
-              <a href="mailto:maulik@example.com" class="social-link">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round">
+              <a href="mailto:maulik@example.com" class="contact-social-link">
+                <svg class="contact-social-link__icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
                 Email
               </a>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -375,7 +366,7 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
-      <p class="footer__main">Built by <strong>Buggy</strong> · Vadodara, India · 2025</p>
+      <p class="footer__main">Built by <strong>Maulik Vaghela</strong> · Anand, Gujarat, India · 2025</p>
       <p class="footer__sub">Powered by curiosity and one too many Stack Overflow tabs.</p>
     </div>
   </footer>
