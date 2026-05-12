@@ -1022,3 +1022,305 @@ Hero Text .hero__text {
     padding-top: 0;
   }
 }
+
+/* ============================================
+   PROJECTS SHOWCASE — scoped to #projects only
+   (horizontal cards; inherits theme tokens)
+   ============================================ */
+#projects .projects-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5vw, 56px);
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+#projects .project-showcase-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 22px 56px -28px rgba(26, 26, 26, 0.18);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] #projects .project-showcase-card {
+  box-shadow: 0 26px 64px -24px rgba(0, 0, 0, 0.55);
+}
+
+#projects .project-showcase-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 72px -26px rgba(26, 26, 26, 0.26);
+}
+
+[data-theme="dark"] #projects .project-showcase-card:hover {
+  box-shadow: 0 36px 80px -22px rgba(0, 0, 0, 0.72);
+}
+
+#projects .project-showcase-card__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: center;
+}
+
+#projects .project-showcase-card--reverse .project-showcase-card__content {
+  grid-column: 2;
+}
+
+#projects .project-showcase-card--reverse .project-showcase-card__visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#projects .project-showcase-card__role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+#projects .project-showcase-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+#projects .project-showcase-card__desc {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 14px;
+  max-width: 46ch;
+}
+
+#projects .project-showcase-card__hashtags {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+#projects .project-showcase-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+  margin-bottom: 28px;
+}
+
+#projects .project-showcase-card__tech i {
+  font-size: 2rem;
+  line-height: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+#projects .project-showcase-card:hover .project-showcase-card__tech i {
+  opacity: 1;
+}
+
+#projects .project-showcase-card:hover .project-showcase-card__tech i:hover {
+  transform: translateY(-3px) scale(1.06);
+}
+
+#projects .project-showcase-card__cta.btn--resume {
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition), transform var(--transition), filter 0.3s ease,
+    box-shadow var(--transition);
+}
+
+#projects .project-showcase-card:hover .project-showcase-card__cta.btn--resume {
+  filter: brightness(1.07);
+}
+
+#projects .project-showcase-card__visual {
+  min-width: 0;
+}
+
+#projects .project-showcase-card__mock {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 14px 40px -18px rgba(26, 26, 26, 0.35);
+  background: var(--white);
+  transition: box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] #projects .project-showcase-card__mock {
+  box-shadow: 0 16px 48px -16px rgba(0, 0, 0, 0.65);
+}
+
+#projects .project-showcase-card:hover .project-showcase-card__mock {
+  box-shadow: 0 22px 52px -16px rgba(26, 26, 26, 0.42);
+}
+
+[data-theme="dark"] #projects .project-showcase-card:hover .project-showcase-card__mock {
+  box-shadow: 0 26px 60px -14px rgba(0, 0, 0, 0.78);
+}
+
+#projects .project-showcase-card__mock-chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--grey-line) 35%, var(--card-bg));
+  border-bottom: 1px solid var(--card-border);
+}
+
+#projects .project-showcase-card__mock-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+#projects .project-showcase-card__mock-dot:nth-child(1) {
+  background: color-mix(in srgb, var(--purple) 85%, var(--grey-line));
+}
+
+#projects .project-showcase-card__mock-dot:nth-child(2) {
+  background: color-mix(in srgb, var(--teal) 75%, var(--grey-line));
+}
+
+#projects .project-showcase-card__mock-dot:nth-child(3) {
+  background: color-mix(in srgb, var(--text-muted) 55%, var(--grey-line));
+}
+
+#projects .project-showcase-card__mock-url {
+  flex: 1;
+  min-width: 120px;
+  margin-left: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--card-bg) 70%, var(--bg));
+  border: 1px solid var(--card-border);
+}
+
+#projects .project-showcase-card__mock-body {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  transition: transform 0.35s ease;
+  transform-origin: center center;
+  background: var(--bg);
+}
+
+#projects .project-showcase-card__mock-body::before,
+#projects .project-showcase-card__mock-body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#projects .project-showcase-card__mock-body--sqlviz::before {
+  background: radial-gradient(circle at 22% 28%,
+      color-mix(in srgb, var(--purple) 32%, transparent),
+      transparent 52%),
+    radial-gradient(circle at 78% 72%,
+      color-mix(in srgb, var(--teal) 26%, transparent),
+      transparent 48%);
+}
+
+#projects .project-showcase-card__mock-body--sqlviz::after {
+  background-image: linear-gradient(135deg,
+      transparent 45%,
+      color-mix(in srgb, var(--purple) 14%, transparent) 45%,
+      color-mix(in srgb, var(--purple) 14%, transparent) 46%,
+      transparent 46%),
+    linear-gradient(315deg,
+      transparent 48%,
+      color-mix(in srgb, var(--teal) 12%, transparent) 48%,
+      color-mix(in srgb, var(--teal) 12%, transparent) 49%,
+      transparent 49%);
+  opacity: 0.85;
+}
+
+#projects .project-showcase-card__mock-body--portfolio::before {
+  background: linear-gradient(160deg,
+      color-mix(in srgb, var(--purple) 22%, var(--bg)),
+      color-mix(in srgb, var(--teal) 15%, var(--bg)));
+}
+
+#projects .project-showcase-card__mock-body--portfolio::after {
+  background: radial-gradient(circle at 50% 88%,
+      color-mix(in srgb, var(--navy) 18%, transparent),
+      transparent 42%),
+    repeating-linear-gradient(-12deg,
+      transparent,
+      transparent 14px,
+      color-mix(in srgb, var(--grey-line) 55%, transparent) 14px,
+      color-mix(in srgb, var(--grey-line) 55%, transparent) 15px);
+  opacity: 0.35;
+}
+
+#projects .project-showcase-card__mock-body--soon::before {
+  background: conic-gradient(from 210deg,
+      color-mix(in srgb, var(--purple) 28%, var(--bg)),
+      color-mix(in srgb, var(--teal) 22%, var(--bg)),
+      color-mix(in srgb, var(--text-muted) 15%, var(--bg)),
+      color-mix(in srgb, var(--purple) 28%, var(--bg)));
+}
+
+#projects .project-showcase-card__mock-body--soon::after {
+  background: radial-gradient(circle at 50% 50%,
+      transparent 36%,
+      color-mix(in srgb, var(--card-border) 80%, transparent) 37%,
+      transparent 38%);
+  opacity: 0.7;
+}
+
+#projects .project-showcase-card:hover .project-showcase-card__mock-body {
+  transform: scale(1.045);
+}
+
+@media (max-width: 960px) {
+  #projects .projects-showcase {
+    gap: 36px;
+  }
+
+  #projects .project-showcase-card {
+    padding: clamp(24px, 4vw, 36px);
+  }
+
+  #projects .project-showcase-card__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  #projects .project-showcase-card--reverse .project-showcase-card__content,
+  #projects .project-showcase-card--reverse .project-showcase-card__visual {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  #projects .project-showcase-card__visual {
+    order: -1;
+  }
+
+  #projects .project-showcase-card__desc {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #projects .projects-showcase {
+    gap: 28px;
+  }
+
+  #projects .project-showcase-card__mock-body {
+    aspect-ratio: 4 / 3;
+  }
+}

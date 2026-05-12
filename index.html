@@ -200,94 +200,100 @@
         <div class="section__underline reveal"></div>
         <p class="section__subtext reveal">Things I've actually built.</p>
 
-        <div class="row-list">
-
+        <div class="projects-showcase">
           <!-- SQLViz -->
-          <div class="row-item reveal">
-            <div class="row-item__icon">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="6" width="20" height="20" rx="3" stroke="#6c3fc5" stroke-width="1.8" fill="none" />
-                <rect x="34" y="6" width="20" height="20" rx="3" stroke="#3dd6c8" stroke-width="1.8" fill="none" />
-                <rect x="18" y="32" width="20" height="18" rx="3" stroke="#6c3fc5" stroke-width="1.8"
-                  fill="rgba(108,63,197,0.07)" />
-                <line x1="2" y1="14" x2="22" y2="14" stroke="#6c3fc5" stroke-width="1.2" />
-                <line x1="34" y1="14" x2="54" y2="14" stroke="#3dd6c8" stroke-width="1.2" />
-                <line x1="18" y1="40" x2="38" y2="40" stroke="#6c3fc5" stroke-width="1.2" />
-                <path d="M22 16 Q28 16 28 32 L28 32" stroke="#6c3fc5" stroke-width="1.5" stroke-dasharray="3 2"
-                  stroke-linecap="round" />
-                <path d="M34 16 Q28 16 28 32 L28 32" stroke="#3dd6c8" stroke-width="1.5" stroke-dasharray="3 2"
-                  stroke-linecap="round" />
-                <circle cx="28" cy="32" r="3" fill="#6c3fc5" />
-              </svg>
-            </div>
-            <div class="row-item__body">
-              <h3 class="row-item__title">SQLViz.</h3>
-              <p class="row-item__text">A dependency-free, browser-native SQL JOIN visualizer. Write real SQL queries
-                and watch them execute step-by-step with animated diagrams. Built with pure HTML, CSS, and JS — no
-                libraries, no frameworks. Co-built with Deep Tandel.</p>
-              <div class="row-item__tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Vanilla JS</span>
-                <span class="tag">SQL</span>
+          <article class="project-showcase-card reveal">
+            <div class="project-showcase-card__grid">
+              <div class="project-showcase-card__content">
+                <p class="project-showcase-card__role">Visualization · Education</p>
+                <h3 class="project-showcase-card__title">SQLViz.</h3>
+                <p class="project-showcase-card__desc">A dependency-free, browser-native SQL JOIN visualizer. Write real
+                  SQL and watch step-by-step animated diagrams — pure HTML, CSS, and JS. Co-built with Deep Tandel.</p>
+                <p class="project-showcase-card__hashtags">#opensource #sql #education #vanilla-js</p>
+                <div class="project-showcase-card__tech" aria-label="Tech stack">
+                  <i class="devicon-html5-plain colored" title="HTML5"></i>
+                  <i class="devicon-css3-plain colored" title="CSS3"></i>
+                  <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                  <i class="devicon-mysql-plain colored" title="SQL"></i>
+                </div>
+                <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener noreferrer"
+                  class="btn btn--resume project-showcase-card__cta">View Project</a>
+              </div>
+              <div class="project-showcase-card__visual">
+                <div class="project-showcase-card__mock" aria-hidden="true">
+                  <div class="project-showcase-card__mock-chrome">
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-url">sqlviz.local</span>
+                  </div>
+                  <div class="project-showcase-card__mock-body project-showcase-card__mock-body--sqlviz"></div>
+                </div>
               </div>
             </div>
-            <div class="row-item__action">
-              <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener" class="btn">View Project →</a>
-            </div>
-          </div>
+          </article>
 
           <!-- Portfolio -->
-          <div class="row-item reveal">
-            <div class="row-item__icon">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="10" width="48" height="36" rx="4" stroke="#6c3fc5" stroke-width="1.8" fill="none" />
-                <line x1="4" y1="20" x2="52" y2="20" stroke="#6c3fc5" stroke-width="1.5" />
-                <circle cx="11" cy="15" r="2" fill="#6c3fc5" />
-                <circle cx="18" cy="15" r="2" fill="#3dd6c8" />
-                <circle cx="25" cy="15" r="2" fill="#3dd6c8" opacity="0.5" />
-                <rect x="10" y="26" width="14" height="14" rx="2" stroke="#3dd6c8" stroke-width="1.5" fill="none" />
-                <line x1="28" y1="29" x2="46" y2="29" stroke="#6c3fc5" stroke-width="1.2" stroke-linecap="round" />
-                <line x1="28" y1="34" x2="42" y2="34" stroke="#6c3fc5" stroke-width="1.2" stroke-linecap="round" />
-                <line x1="28" y1="39" x2="38" y2="39" stroke="#3dd6c8" stroke-width="1.2" stroke-linecap="round" />
-              </svg>
-            </div>
-            <div class="row-item__body">
-              <h3 class="row-item__title">This Portfolio.</h3>
-              <p class="row-item__text">Hand-crafted personal portfolio. Light editorial layout inspired by the best of
-                independent developer sites. Pure HTML, CSS, JavaScript — zero dependencies.</p>
-              <div class="row-item__tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Vanilla JS</span>
+          <article class="project-showcase-card project-showcase-card--reverse reveal">
+            <div class="project-showcase-card__grid">
+              <div class="project-showcase-card__content">
+                <p class="project-showcase-card__role">Frontend · Personal site</p>
+                <h3 class="project-showcase-card__title">This Portfolio.</h3>
+                <p class="project-showcase-card__desc">Hand-crafted editorial layout inspired by independent developer
+                  sites. Fast, accessible, and dependency-light — HTML, CSS, and JavaScript only.</p>
+                <p class="project-showcase-card__hashtags">#portfolio #frontend #design-system</p>
+                <div class="project-showcase-card__tech" aria-label="Tech stack">
+                  <i class="devicon-html5-plain colored" title="HTML5"></i>
+                  <i class="devicon-css3-plain colored" title="CSS3"></i>
+                  <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                </div>
+                <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener noreferrer"
+                  class="btn btn--resume project-showcase-card__cta">GitHub</a>
+              </div>
+              <div class="project-showcase-card__visual">
+                <div class="project-showcase-card__mock" aria-hidden="true">
+                  <div class="project-showcase-card__mock-chrome">
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-url">maulikvaghela.dev</span>
+                  </div>
+                  <div class="project-showcase-card__mock-body project-showcase-card__mock-body--portfolio"></div>
+                </div>
               </div>
             </div>
-            <div class="row-item__action">
-              <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener" class="btn">GitHub →</a>
-            </div>
-          </div>
+          </article>
 
           <!-- Coming Soon -->
-          <div class="row-item reveal">
-            <div class="row-item__icon">
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="28,5 51,18 51,38 28,51 5,38 5,18" stroke="#6c3fc5" stroke-width="1.8" fill="none"
-                  stroke-linejoin="round" />
-                <text x="22" y="35" font-family="Georgia,serif" font-size="22" font-weight="700" fill="none"
-                  stroke="#3dd6c8" stroke-width="1.5">?</text>
-              </svg>
+          <article class="project-showcase-card reveal">
+            <div class="project-showcase-card__grid">
+              <div class="project-showcase-card__content">
+                <p class="project-showcase-card__role">In development</p>
+                <h3 class="project-showcase-card__title">Coming Soon.</h3>
+                <p class="project-showcase-card__desc">Something's brewing: data, algorithms, and probably too many late
+                  nights. Follow on GitHub for early access.</p>
+                <p class="project-showcase-card__hashtags">#wip #data #algorithms</p>
+                <div class="project-showcase-card__tech" aria-label="Planned stack">
+                  <i class="devicon-python-plain colored" title="Python"></i>
+                  <i class="devicon-react-original colored" title="React"></i>
+                  <i class="devicon-nodejs-plain colored" title="Node.js"></i>
+                </div>
+                <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener noreferrer"
+                  class="btn btn--resume project-showcase-card__cta">Know More</a>
+              </div>
+              <div class="project-showcase-card__visual">
+                <div class="project-showcase-card__mock" aria-hidden="true">
+                  <div class="project-showcase-card__mock-chrome">
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-dot"></span>
+                    <span class="project-showcase-card__mock-url">preview.local</span>
+                  </div>
+                  <div class="project-showcase-card__mock-body project-showcase-card__mock-body--soon"></div>
+                </div>
+              </div>
             </div>
-            <div class="row-item__body">
-              <h3 class="row-item__title">Coming Soon.</h3>
-              <p class="row-item__text">Something's brewing. Check back soon or follow on GitHub for early access. It
-                involves data, some clever algorithms, and probably too many late nights.</p>
-            </div>
-            <div class="row-item__action">
-              <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener" class="btn">Watch on GitHub
-                →</a>
-            </div>
-          </div>
-
+          </article>
         </div>
       </div>
     </section>
