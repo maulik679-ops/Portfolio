@@ -1,0 +1,1024 @@
+/* ============================================
+   BUGGY'S PORTFOLIO — MAIN STYLESHEET
+   Inspired by robbowen.digital aesthetic
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+  --bg: #FFFAF0;
+  --navy: #1A1A1A;
+  --purple: #FF5733;
+  --purple-light: #FF7A5C;
+  --teal: #FFC300;
+  --teal-light: #FFD740;
+  --grey-line: #E8E0D4;
+  --text-body: #3A3A3A;
+  --text-muted: #888888;
+  --white: #ffffff;
+  --card-bg: rgba(255, 250, 240, 0.8);
+  --card-border: rgba(26, 26, 26, 0.1);
+  /* RGB triplet for the nav glass effect */
+  --nav-bg-rgb: 255, 250, 240;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  --max-w: 1280px;
+  --section-pad: 140px;
+  --radius: 12px;
+
+  --transition: 0.25s ease;
+}
+
+/* ============================================
+   DARK THEME OVERRIDES
+   ============================================ */
+[data-theme="dark"] {
+  --bg: #0D0D0D;
+  --navy: #F5F5F5;
+  --white: #1A1A1A;
+  --grey-line: #2E2E2E;
+  --text-body: #D1D1D1;
+  --text-muted: #999999;
+  --card-bg: rgba(26, 26, 26, 0.95);
+  --card-border: rgba(255, 195, 0, 0.1);
+  /* Dark nav glass uses a near-black base */
+  --nav-bg-rgb: 13, 13, 13;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 40px;
+  /* Increased padding for better balance on wide screens */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* Variable-driven glass: flips automatically in dark mode */
+  background: rgba(var(--nav-bg-rgb), 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--grey-line);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 72px;
+  /* Slightly taller for a more premium feel */
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 40px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.nav__logo {
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+  transition: filter var(--transition);
+}
+
+/* Invert logo in dark mode (for dark-coloured SVGs) */
+[data-theme="dark"] .nav__logo {
+  filter: invert(1) brightness(2);
+}
+
+.nav__menu-label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--navy);
+  transition: color var(--transition);
+}
+
+.nav__rhs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border: 2px solid var(--purple);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.nav__link:hover {
+  background: var(--purple);
+  color: #ffffff;
+}
+
+/* In dark mode, swap orange pills to gold so they read against the dark bg */
+[data-theme="dark"] .nav__link {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+[data-theme="dark"] .nav__link:hover {
+  background: var(--teal);
+  color: #0D0D0D;
+}
+
+.nav__hire {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border: 2px solid var(--purple);
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.nav__hire:hover {
+  background: var(--purple);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .nav__hire {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+[data-theme="dark"] .nav__hire:hover {
+  background: var(--teal);
+  color: #0D0D0D;
+}
+
+/* ── Theme Toggle Button ─────────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  transition: background var(--transition), transform var(--transition), filter var(--transition), color var(--transition);
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 87, 51, 0.1);
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Lucide icon sizing */
+#theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#theme-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+/* Golden glow when dark mode is active (lightbulb lit state) */
+[data-theme="dark"] #theme-toggle {
+  color: var(--teal);
+  filter: drop-shadow(0 0 8px rgba(255, 195, 0, 0.4));
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  /* push content to the top, not the vertical centre */
+  justify-content: flex-start;
+  padding-top: 30px;
+  /* exactly the navbar height — sits flush below it */
+}
+
+/* Light mode — subtle neutral shadow */
+.hero__avatar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+  transform: translateY(-20px);
+  /* lift the doodle to align with the headline */
+}
+
+/* Dark mode — warm golden glow
+[data-theme="dark"] .hero__avatar {
+  filter: drop-shadow(0 0 20px rgba(255, 195, 0, 0.3));
+} */
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 40px;
+  padding-block: 48px;
+  /* reduced from 80px to pull content higher */
+}
+
+Hero Text .hero__text {
+  position: relative;
+}
+
+.hero__eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.1s forwards;
+}
+
+.hero__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.25s forwards;
+}
+
+.hero__heading strong {
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.hero__sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.4s forwards;
+}
+
+.hero__cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.55s forwards;
+}
+
+
+/* Hero Illustration */
+.hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.35s forwards;
+
+  /* This moves the entire illustration (doodle + dots) to the left */
+  transform: translateX(-40px);
+}
+
+.hero__dot-bg {
+  position: absolute;
+  inset: -20px;
+  background-image: radial-gradient(circle, var(--teal) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  opacity: 0.20;
+  border-radius: var(--radius);
+  z-index: 0;
+}
+
+/* (hero__avatar styles defined above) */
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 26px;
+  border: 2px solid var(--purple);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--purple);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -4px rgba(255, 195, 0, 0.45);
+}
+
+.btn--ghost {
+  border-color: var(--grey-line);
+  color: var(--text-muted);
+}
+
+.btn--ghost:hover {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: var(--navy);
+  box-shadow: 0 6px 20px -4px rgba(255, 195, 0, 0.45);
+}
+
+
+.btn--resume {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--purple);
+  color: #ffffff;
+  border: 2px solid var(--purple);
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+  box-shadow: none;
+}
+
+.btn--resume:hover {
+  background: transparent;
+  color: var(--purple);
+  transform: translateY(-2px);
+  box-shadow: none !important;
+  border: 2px solid var(--purple);
+}
+
+/* ============================================
+   SECTION COMMONS
+   ============================================ */
+.section {
+  padding-block: var(--section-pad);
+  border-top: 1px solid var(--grey-line);
+}
+
+.section__eyebrow {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+.section__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.section__underline {
+  width: 40px;
+  height: 3px;
+  background: var(--purple);
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+
+.section__subtext {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 56px;
+  max-width: 520px;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about {}
+
+.about__body {
+  max-width: 640px;
+}
+
+.about__body p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+
+.about__body p:last-of-type {
+  margin-bottom: 36px;
+}
+
+/* ── Marquee wrapper (clips overflow) */
+.toolkit {
+  /* overflow:visible lets lifted/glowing cards show above the row */
+  overflow: visible;
+}
+
+.toolkit__marquee {
+  overflow: hidden;
+  width: 100%;
+  /* headroom so lifted cards don’t get clipped at the edges */
+  padding-block: 15px;
+  margin-bottom: 24px;
+  /* soft fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* ── Scrolling track ── */
+.marquee--ltr,
+.marquee--rtl {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  will-change: transform;
+  animation-timing-function: linear;
+}
+
+.marquee--ltr {
+  animation: scroll-left 25s linear infinite;
+}
+
+.marquee--rtl {
+  animation: scroll-right 25s linear infinite;
+}
+
+/* ── Slow down (50% speed) on hover — no jarring pause ── */
+.toolkit:hover .marquee--ltr,
+.toolkit:hover .marquee--rtl {
+  animation-duration: 25s;
+}
+
+.hero__avatar {
+  width: 100%;
+  max-width: 400px;
+  /* Adjust based on your doodle's detail */
+  height: auto;
+
+  /* Performance & Animation */
+  will-change: transform;
+  animation: float 4s ease-in-out infinite;
+
+  /* Professional touch: prevents dragging the image */
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* ── Individual icon pill ── */
+.marquee__item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 28px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  min-width: 110px;
+  box-sizing: border-box;
+  /* stacking context — lifted card always renders on top */
+  position: relative;
+  z-index: 1;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition), z-index 0s;
+  flex-shrink: 0;
+}
+
+.marquee__item:hover {
+  border-color: var(--purple);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px -6px rgba(255, 87, 51, 0.2);
+  z-index: 100;
+}
+
+.marquee__item i {
+  font-size: 50px;
+  display: block;
+  line-height: 1;
+}
+
+.marquee__item p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.marquee__item:hover p {
+  color: var(--purple);
+}
+
+/* ============================================
+   SKILL / PROJECT ROWS
+   ============================================ */
+.row-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 28px 24px;
+  align-items: start;
+  padding: 36px 0;
+  border-top: 1px solid var(--grey-line);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+.row-item:last-child {
+  border-bottom: 1px solid var(--grey-line);
+}
+
+.row-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px -8px rgba(255, 87, 51, 0.14);
+  border-radius: var(--radius);
+}
+
+.row-item__icon {
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.row-item__body {}
+
+.row-item__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.row-item__text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.row-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--grey-line);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--purple-light);
+}
+
+.row-item__action {
+  padding-top: 4px;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.contact__form {}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid var(--grey-line);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--navy);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.14);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form__success {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(255, 87, 51, 0.07);
+  border: 1px solid var(--purple);
+  border-radius: var(--radius);
+  color: var(--purple);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form__success.show {
+  display: block;
+}
+
+/* Contact info side */
+.contact__info {
+  padding-top: 8px;
+}
+
+.contact__info-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+
+.contact__info-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.contact__socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: color var(--transition);
+}
+
+.social-link:hover {
+  color: var(--purple);
+}
+
+.social-sep {
+  color: var(--grey-line);
+  font-size: 1rem;
+  line-height: 1;
+  select: none;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  border-top: 1px solid var(--grey-line);
+  padding-block: 48px;
+  text-align: center;
+}
+
+.footer__main {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.footer__main strong {
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.footer__sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scrollBounce {
+
+  0%,
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(0.6);
+    transform-origin: top;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — TABLET
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 80px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .hero__sub {
+    max-width: 100%;
+  }
+
+  .hero__cta-row {
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    margin-top: 32px;
+  }
+
+  .hero__visual {
+    order: -1;
+  }
+
+  .hero__dot-bg {
+    inset: -10px;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .row-item {
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .row-item__action {
+    grid-column: 2;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .toolkit__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 20px;
+  }
+
+  .nav__inner {
+    padding-inline: 20px;
+  }
+
+  .hero__inner {
+    padding-inline: 20px;
+  }
+
+  .hero__heading {
+    font-size: 2.4rem;
+  }
+
+  .row-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .row-item__icon {
+    display: none;
+  }
+
+  .row-item__action {
+    padding-top: 0;
+  }
+}
