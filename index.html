@@ -77,7 +77,6 @@
             or exploring graph algorithms, I'm drawn to problems that require both rigor and creativity.</p>
           <p class="reveal">When I'm not coding, I'm probably sketching out ideas for the next project, deep-diving into
             Google Cloud, or convincing myself I need just one more Stack Overflow tab.</p>
-          <!-- <a href="#contact" class="btn reveal">About my approach →</a> -->
         </div>
       </div>
     </section>
@@ -320,12 +319,12 @@
               </p>
             </div>
             <h3 class="contact-info-heading">Let's build something.</h3>
-            <p class="contact-info-lede">Whether you have a project in mind, want to collaborate on open source, or
-              just want to chat about algorithms at 2am — my inbox is always open.</p>
+            <!-- <p class="contact-info-lede">Whether you have a project in mind, want to collaborate on open source, or
+              just want to chat about algorithms at 2am — my inbox is always open.</p> -->
             <div class="contact-name-block">
               <p class="contact-name">Maulik Vaghela</p>
               <p class="contact-role">Full Stack Developer</p>
-              <p class="contact-meta">2nd Year B.E. CS &amp; IT · Vadodara, India</p>
+              <p class="contact-meta">3rd Year B.Tech IT · Anand, Gujarat, India</p>
             </div>
             <div class="contact-socials">
               <a href="https://github.com/maulikvaghela" target="_blank" rel="noopener noreferrer"
@@ -366,7 +365,7 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
-      <p class="footer__main">Built by <strong>Maulik Vaghela</strong> · Anand, Gujarat, India · 2025</p>
+      <p class="footer__main">Built by <strong>Maulik Vaghela</strong> · Anand, Gujarat, India · 2026</p>
       <p class="footer__sub">Powered by curiosity and one too many Stack Overflow tabs.</p>
     </div>
   </footer>
@@ -385,9 +384,7 @@
 
       function setIcon(isDark) {
         if (!icon) return;
-        // Dark mode active → show sun (click to go light)
-        // Light mode active → show lightbulb (click to turn on dark)
-        icon.setAttribute('data-lucide', isDark ? 'sun' : 'lightbulb');
+        icon.setAttribute('data-lucide', 'lightbulb');
         lucide.createIcons();
       }
 

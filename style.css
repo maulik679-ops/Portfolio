@@ -743,11 +743,9 @@ Hero Text .hero__text {
   position: absolute;
   inset: 15% -10% auto -10%;
   height: min(48vh, 480px);
-  background: radial-gradient(
-    ellipse 72% 58% at 48% 42%,
-    color-mix(in srgb, var(--purple) 6%, transparent),
-    transparent 74%
-  );
+  background: radial-gradient(ellipse 72% 58% at 48% 42%,
+      color-mix(in srgb, var(--purple) 6%, transparent),
+      transparent 74%);
   opacity: 0.68;
   z-index: 0;
 }
@@ -869,7 +867,8 @@ Hero Text .hero__text {
 
 #contact .contact-textarea {
   resize: vertical;
-  min-height: 180px;
+  min-height: 90px;
+  height: 90px;
   line-height: 1.65;
 }
 
@@ -908,12 +907,11 @@ Hero Text .hero__text {
 
 #contact .contact-button:hover {
   transform: translateY(-2px);
-  background: var(--purple);
-  border-color: var(--purple);
+  background-color: color-mix(in srgb, var(--purple) 92%, var(--bg));
+  border-color: color-mix(in srgb, var(--purple) 88%, var(--grey-line));
   color: #ffffff;
-  filter: brightness(1.05);
-  box-shadow: 0 12px 32px color-mix(in srgb, var(--purple) 20%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--purple) 28%, transparent);
+  filter: none;
+  box-shadow: none;
 }
 
 #contact .contact-button:active {
@@ -1059,9 +1057,9 @@ Hero Text .hero__text {
 #contact .contact-social-link:hover {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--purple) 38%, var(--grey-line));
-  background: color-mix(in srgb, var(--purple) 8%, var(--card-bg));
+  background-color: color-mix(in srgb, var(--purple) 8%, var(--card-bg));
   color: var(--navy);
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--navy) 7%, transparent);
+  box-shadow: none;
 }
 
 #contact .contact-social-link__icon {
